@@ -2,6 +2,7 @@
 
 import sys, socket, argparse, struct, fcntl
 import rtGPSPACEPPPStream, mjd2utc
+import json
 #import binascii
 
 def multicast_connect(mcast_grp, mcast_port, stream_type):
@@ -21,6 +22,8 @@ def multicast_connect(mcast_grp, mcast_port, stream_type):
   sock.setsockopt(socket.SOL_IP, socket.IP_ADD_MEMBERSHIP,
                    socket.inet_aton(mcast_grp) + socket.inet_aton(host))
 
+  count = 0
+
   while 1:
     try:
       cdata, addr = sock.recvfrom(1024)
@@ -32,8 +35,73 @@ def multicast_connect(mcast_grp, mcast_port, stream_type):
     else:
       raise Exception
       pydata = rtGPSPACEPPPStream.rt_stream_pgc.from_buffer_copy(cdata)
+    try:
+      write_pydata(pydata, stream_type, count)
+      count += 1
+    except:
+      pass
+    print count
+    # draw_pydata(pydata, stream_type)
 
-    draw_pydata(pydata, stream_type)
+def write_pydata(pydata, stream_type, count):
+  if count < 200:
+    data = {'sta_name':pydata.sta_name,
+    'MJD_sys':pydata.MJD_sys,
+    'MJD_utc_sys':mjd2utc.MJD2UTC(pydata.MJD_sys),
+    'MJD_ini':pydata.MJD_ini,
+    'MJD_utc_ini':mjd2utc.MJD2UTC(pydata.MJD_ini),
+    'MJD_obs':pydata.MJD_obs,
+    'MJD_utc_obs':mjd2utc.MJD2UTC(pydata.MJD_obs),
+    'lat':pydata.lat,
+    'lon':pydata.lon,
+    'hgt':pydata.hgt,
+    'dN':pydata.dN,
+    'dE':pydata.dE,
+    'dh':pydata.dh,
+    'sN':pydata.sN,
+    'sE':pydata.sE,
+    'sh':pydata.sh,
+    'cNE':pydata.cNE,
+    'cNh':pydata.cNh,
+    'cEh':pydata.cEh,
+    'sig0':pydata.sig0,
+    'pdop':pydata.pdop,
+    'cor_age':pydata.cor_age,
+    'dt_ms':pydata.dt_ms,
+    'pmin':pydata.pmin,
+    'pmax':pydata.pmax,
+    'ar_dt_ms':pydata.ar_dt_ms,
+    'nmsg_obs':pydata.nmsg_obs,
+    'nmsg_eph':pydata.nmsg_eph,
+    'nmsg_cor':pydata.nmsg_cor,
+    'nmsg_ion':pydata.nmsg_ion,
+    'nsat_trk':pydata.nsat_trk,
+    'nsat_eph':pydata.nsat_eph,
+    'nsat_cor':pydata.nsat_cor,
+    'nsat_ion':pydata.nsat_ion,
+    'nsat_use':pydata.nsat_use,
+    'nrej_trk':pydata.nrej_trk,
+    'nrej_eph':pydata.nrej_eph,
+    'nrej_cor':pydata.nrej_cor,
+    'nrej_ion':pydata.nrej_ion,
+    'nrej_elv':pydata.nrej_elv,
+    'namb_jmp':pydata.namb_jmp,
+    'nrng_rej':pydata.nrng_rej,
+    'nphs_rej':pydata.nphs_rej,
+    'status':pydata.status,
+    'ffix_amb':pydata.ffix_amb,
+    'pfix_amb':pydata.pfix_amb,
+    'prov_id':pydata.prov_id,
+    'soln_id':pydata.soln_id,
+    'msgc_id':pydata.msgc_id}
+
+    with open('pydata.txt', 'ab') as f:
+      f.write(json.dumps(data))
+      f.write("\n")
+  else:
+    print "Wrote 200 lines"
+
+
 
 # draw rtGPSPACEPPPStream
 def draw_pydata(pydata, stream_type):
