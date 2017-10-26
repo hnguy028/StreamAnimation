@@ -44,7 +44,7 @@ def multicast_connect(mcast_grp, mcast_port, stream_type):
     # draw_pydata(pydata, stream_type)
 
 def write_pydata(pydata, stream_type, count):
-  if count < 200:
+  if count < 1000:
     data = {'sta_name':pydata.sta_name,
     'MJD_sys':pydata.MJD_sys,
     'MJD_utc_sys':mjd2utc.MJD2UTC(pydata.MJD_sys),
