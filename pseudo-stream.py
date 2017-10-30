@@ -3,6 +3,7 @@ import argparse
 import json
 import matplotlib.pyplot as plt
 import numpy as np
+import time
 import random
 import rtGPSPACEPPPStream, mjd2utc
 
@@ -22,6 +23,7 @@ class stream:
           # pydata = rtGPSPACEPPPStream.rt_stream_pgc.from_buffer_copy(line)
           json_dict = json.loads(line)
           pydata = rt_stream_onc(**json_dict)
+          time.sleep(1)
           yield pydata
 
 def main(filename):
@@ -30,7 +32,7 @@ def main(filename):
     generator = data_stream.read()
     #for pydata in generator:
     #  draw(pydata, 'table')
-    draw(generator)
+    draw1(generator)
 
       # add a slight pause
 
@@ -38,7 +40,7 @@ def main(filename):
 #  pass
 
 #def draw(pydata, plot_type='table'):
-def draw(generator, plot_type='table'):
+def draw1(generator, plot_type='table'):
   if plot_type == 'table':
     # todo : make window + figure sizing dynamic
     fig = plt.figure(figsize=(8, 8))
@@ -111,7 +113,7 @@ def draw(generator, plot_type='table'):
                rowLabels=np.asarray(onc_stream_def.rows),
                loc="center")
 
-    ani = FuncAnimation(fig, update, generator, interval=2000)
+    ani = FuncAnimation(fig, update, generator)
     plt.show()
 
 
