@@ -3,12 +3,21 @@ import argparse
 import json
 import time
 
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
 class App(tk.Tk):
   def __init__(self, *args, **kwargs):
     tk.Tk.__init__(self)
     table = Table(self, 46, 2, **kwargs)
     table.pack(side="top", fill=None)
     table.update_table()
+
+    # create a second window
+    # second_window = tk.Toplevel(self)
+    # table2 = Table(second_window, 46, 2, **kwargs)
 
 class Table(tk.Frame):
   def __init__(self, parent, rows=10, columns=2, **kwargs):
@@ -34,7 +43,8 @@ class Table(tk.Frame):
                            anchor="e", font=("Helvetica", 8))
         else:
           label = tk.Label(self, text="%s/%s" % (row, column),
-                           borderwidth=0, width=20)
+                           borderwidth=0, width=20,
+                           anchor="w", font=("Helvetica", 8))
 
         label.grid(row=row, column=column, sticky="nsew", padx=1, pady=1)
         current_row.append(label)
@@ -179,6 +189,26 @@ if __name__== "__main__":
   data_stream = stream(args.filename)
 
   generator = data_stream.read()
+
+  fig = plt.Figure()
+
+  x = np.arange(0, 2 * np.pi, 0.01)  # x-array
+
+
+  def animate(i):
+    line.set_ydata(np.sin(x + i / 10.0))  # update the data
+    return line,
+
+  root = tk.Tk()
+
+  label = tk.Label(root, text="SHM Simulation").grid(column=0, row=0)
+
+  canvas = FigureCanvasTkAgg(fig, master=root)
+  canvas.get_tk_widget().grid(column=0, row=1)
+
+  ax = fig.add_subplot(111)
+  line, = ax.plot(x, np.sin(x))
+  ani = animation.FuncAnimation(fig, animate, np.arange(1, 200), interval=25, blit=False)
 
   app = App(row_headers=rows, generator=generator)
   app.mainloop()
