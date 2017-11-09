@@ -53,7 +53,10 @@ class TimeSeriesGraph():
     start = self.current_datetime - dt.timedelta(minutes=self.frame_step*self.viewing_frame)
 
     self.ax.set_xlim([start, self.current_datetime])
-    self.ax.set_ylim([0, 1])
+    self.ax.set_ylim([-0.05, 0.05])
+
+    self.ax2.set_xlim([start, self.current_datetime])
+    self.ax2.set_ylim([0.00, 0.03])
 
     plt.xticks(rotation=45)
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter(_datetime_format))
@@ -74,16 +77,32 @@ class TimeSeriesGraph():
   def _generator(self):
     # init
     kwargs = {}
-    kwargs["points"] = np.empty(0)
+    kwargs["dN"] = np.empty(0)
+    kwargs["dE"] = np.empty(0)
+    kwargs["dh"] = np.empty(0)
+    kwargs["sN"] = np.empty(0)
+    kwargs["sE"] = np.empty(0)
+    kwargs["sh"] = np.empty(0)
 
     # init generator counter
     frame_counter = 0
+
     json_data = None
+
     while 1:
+
+      # read from stream
       try:
         json_data = self.data_stream.next()
         pydata = rt_stream_onc(**json_data)
-        print(pydata.sta_name)
+
+        kwargs["dN"] = np.append(kwargs["dN"], pydata.dN)
+        kwargs["dE"] = np.append(kwargs["dE"], pydata.dE)
+        kwargs["dh"] = np.append(kwargs["dh"], pydata.dh)
+
+        kwargs["sN"] = np.append(kwargs["sN"], pydata.sN)
+        kwargs["sE"] = np.append(kwargs["sE"], pydata.sE)
+        kwargs["sh"] = np.append(kwargs["sh"], pydata.sh)
       except:
         pass
 
@@ -92,14 +111,21 @@ class TimeSeriesGraph():
       self.current_datetime = self._increment_datetime(self.current_datetime, auto=True)
 
       # generate y axis data
-      kwargs["points"] = np.append(kwargs["points"], np.random.rand(1))
+      #kwargs["points"] = np.append(kwargs["points"], np.random.uniform(-0.05, 0.05, 1))
+      #kwargs["points2"] = np.append(kwargs["points2"], np.random.uniform(0.00, 0.03, 1))
 
       # clean up points not within viewing frame
-      if len(kwargs["points"]) > self.viewing_frame + 1:
-        kwargs["points"] = np.delete(kwargs["points"], 0)
+      # todo : create function or loop to clean up all kwargs lists
+      if len(kwargs["dN"]) > self.viewing_frame + 1:
+        kwargs["dN"] = np.delete(kwargs["dN"], 0)
+        kwargs["dE"] = np.delete(kwargs["dE"], 0)
+        kwargs["dh"] = np.delete(kwargs["dh"], 0)
+        kwargs["sN"] = np.delete(kwargs["sN"], 0)
+        kwargs["sE"] = np.delete(kwargs["sE"], 0)
+        kwargs["sh"] = np.delete(kwargs["sh"], 0)
 
       # generate corresponding x axis data
-      kwargs['datetime'] = self._get_date_axis(self.current_datetime)[-len(kwargs["points"]):]
+      kwargs['datetime'] = self._get_date_axis(self.current_datetime)[-len(kwargs["dN"]):]
 
       # pass along current frame number
       kwargs['frame_number'] = frame_counter
@@ -130,13 +156,19 @@ class TimeSeriesGraph():
 
   # update function called every iteration of the FuncAnimation implementation
   def _update(self, kwargs):
-    n, x, y = kwargs['frame_number'], kwargs['datetime'], kwargs["points"]
+    n, x = kwargs['frame_number'], kwargs['datetime']# , kwargs["points"]
+    dN, dE, dh = kwargs['dN'], kwargs['dE'], kwargs['dh']
+    sN, sE, sh = kwargs['sN'], kwargs['sE'], kwargs['sh']
 
     # set axis data
     # line graph
-    self.ax.plot(x, y)
+    self.ax.plot(x, dN, 'r')
+    self.ax.plot(x, dE, 'g')
+    self.ax.plot(x, dh, 'b')
 
-    # self.ax.plot(x, y2, 'r+')
+    self.ax2.plot(x, sN, 'y')
+    self.ax2.plot(x, sE, 'violet')
+    self.ax2.plot(x, sh, 'black')
 
     # scatter plot
     # self.ax.plot_date(x,y)
