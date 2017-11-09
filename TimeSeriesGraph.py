@@ -52,11 +52,17 @@ class TimeSeriesGraph():
     # init viewing frame limits
     start = self.current_datetime - dt.timedelta(minutes=self.frame_step*self.viewing_frame)
 
+    # set axis limit
+    # todo : make this dynamic / user defined
     self.ax.set_xlim([start, self.current_datetime])
     self.ax.set_ylim([-0.05, 0.05])
 
     self.ax2.set_xlim([start, self.current_datetime])
     self.ax2.set_ylim([0.00, 0.03])
+
+    # todo : to be defined by user
+    self.ax1_attr = ['dN', 'dE', 'dh']
+    self.ax2_attr = ['sN', 'sE', 'sh']
 
     plt.xticks(rotation=45)
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter(_datetime_format))
@@ -77,12 +83,7 @@ class TimeSeriesGraph():
   def _generator(self):
     # init
     kwargs = {}
-    kwargs["dN"] = np.empty(0)
-    kwargs["dE"] = np.empty(0)
-    kwargs["dh"] = np.empty(0)
-    kwargs["sN"] = np.empty(0)
-    kwargs["sE"] = np.empty(0)
-    kwargs["sh"] = np.empty(0)
+    self._init_kwargs(kwargs)
 
     # init generator counter
     frame_counter = 0
@@ -96,13 +97,7 @@ class TimeSeriesGraph():
         json_data = self.data_stream.next()
         pydata = rt_stream_onc(**json_data)
 
-        kwargs["dN"] = np.append(kwargs["dN"], pydata.dN)
-        kwargs["dE"] = np.append(kwargs["dE"], pydata.dE)
-        kwargs["dh"] = np.append(kwargs["dh"], pydata.dh)
-
-        kwargs["sN"] = np.append(kwargs["sN"], pydata.sN)
-        kwargs["sE"] = np.append(kwargs["sE"], pydata.sE)
-        kwargs["sh"] = np.append(kwargs["sh"], pydata.sh)
+        self._load_kwargs(kwargs, pydata)
       except:
         pass
 
@@ -117,12 +112,7 @@ class TimeSeriesGraph():
       # clean up points not within viewing frame
       # todo : create function or loop to clean up all kwargs lists
       if len(kwargs["dN"]) > self.viewing_frame + 1:
-        kwargs["dN"] = np.delete(kwargs["dN"], 0)
-        kwargs["dE"] = np.delete(kwargs["dE"], 0)
-        kwargs["dh"] = np.delete(kwargs["dh"], 0)
-        kwargs["sN"] = np.delete(kwargs["sN"], 0)
-        kwargs["sE"] = np.delete(kwargs["sE"], 0)
-        kwargs["sh"] = np.delete(kwargs["sh"], 0)
+        self._clean_kwargs(kwargs)
 
       # generate corresponding x axis data
       kwargs['datetime'] = self._get_date_axis(self.current_datetime)[-len(kwargs["dN"]):]
@@ -131,6 +121,29 @@ class TimeSeriesGraph():
       kwargs['frame_number'] = frame_counter
 
       yield kwargs
+
+  # todo : remove
+  def _init_kwargs(self, kwargs):
+    for attr in self.ax1_attr:
+      kwargs[attr] = np.empty(0)
+
+    for attr in self.ax2_attr:
+      kwargs[attr] = np.empty(0)
+
+  def _clean_kwargs(self, kwargs):
+    for attr in self.ax1_attr:
+      kwargs[attr] = np.delete(kwargs[attr], 0)
+
+    for attr in self.ax2_attr:
+      kwargs[attr] = np.delete(kwargs[attr], 0)
+
+  # helper method for generator : given a list of attributes, the function loads the values from the object into the given dictionary
+  def _load_kwargs(self, kwargs, obj):
+    for attr in self.ax1_attr:
+      kwargs[attr] = np.append(kwargs[attr], getattr(obj, attr))
+
+    for attr in self.ax2_attr:
+      kwargs[attr] = np.append(kwargs[attr], getattr(obj, attr))
 
   # return a list of datetime objects from ending in the given datetime
   def _get_date_axis(self, _datetime, _periods=None, _freq=None):
