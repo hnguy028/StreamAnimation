@@ -8,6 +8,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+import TimeSeriesGraph
+
 class App(tk.Tk):
   def __init__(self, *args, **kwargs):
     tk.Tk.__init__(self)

@@ -18,16 +18,21 @@ import numpy as np
 import pandas as pd
 from dateutil.relativedelta import *
 
+import json
+
 '''
   
 '''
 class TimeSeriesGraph():
-  def __init__(self, _window_size=25, _step_size=(1, 'min'), _datetime_format='%Y-%m-%d %H:%M'):
+  def __init__(self, data_stream, _window_size=25, _step_size=(1, 's'), _datetime_format='%Y-%m-%d %H:%M:%S'):
     # setup figure
     self.fig = plt.figure()
 
     # add subplot
     self.ax = self.fig.add_subplot(1, 1, 1)
+    self.ax2 = self.ax.twinx()
+
+    self.data_stream = data_stream
 
     # viewing frame size
     self.viewing_frame = _window_size
@@ -73,8 +78,15 @@ class TimeSeriesGraph():
 
     # init generator counter
     frame_counter = 0
-
+    json_data = None
     while 1:
+      try:
+        json_data = self.data_stream.next()
+        pydata = rt_stream_onc(**json_data)
+        print(pydata.sta_name)
+      except:
+        pass
+
       # increment the x-axis frame
       frame_counter += 1
       self.current_datetime = self._increment_datetime(self.current_datetime, auto=True)
@@ -106,7 +118,7 @@ class TimeSeriesGraph():
   def _increment_datetime(self, datetime, auto=False, _seconds=0, _minutes=0, _hours=0, _days=0, _weeks=0, _months=0, _years=0):
     # to be handled by the TimeSeriesGraph class variables
     if auto:
-      return datetime + relativedelta(minutes=self.frame_step)
+      return datetime + relativedelta(seconds=self.frame_step)
     else:
     # increment as specified in the function call
       if _months == 0 and _years == 0:
@@ -122,7 +134,9 @@ class TimeSeriesGraph():
 
     # set axis data
     # line graph
-    self.ax.plot(x,y)
+    self.ax.plot(x, y)
+
+    # self.ax.plot(x, y2, 'r+')
 
     # scatter plot
     # self.ax.plot_date(x,y)
@@ -132,14 +146,32 @@ class TimeSeriesGraph():
 
     if n > self.viewing_frame:
       # usual case when we continuously plot new points
-      self.ax.set_xlim([self.current_datetime - relativedelta(minutes=self.viewing_frame * self.frame_step), self.current_datetime])
+      self.ax.set_xlim([self.current_datetime - relativedelta(seconds=self.viewing_frame * self.frame_step), self.current_datetime])
     else:
       # initial case when there fewer points than self.viewing_frame
       self.ax.set_xlim([max(self.default_datetime,
-                            self.current_datetime - dt.timedelta(minutes=self.frame_step*self.viewing_frame)),
+                            self.current_datetime - dt.timedelta(seconds=self.frame_step*self.viewing_frame)),
                         self.current_datetime])
 
     return self.graph
 
+################################ Debugging ################################
+
+class rt_stream_onc:
+  def __init__(self, **entries):
+    self.__dict__.update(entries)
+
+class stream:
+ def __init__(self, filename="pydata.txt"):
+   self.filename = filename
+
+ def read(self):
+   while 1:
+     with open(self.filename, 'r') as f:
+       for line in f:
+         yield json.loads(line)
+
+################################ --------- ################################
 if __name__ == '__main__':
-  ani = TimeSeriesGraph()
+  data_stream = stream()
+  ani = TimeSeriesGraph(data_stream.read())
