@@ -1,4 +1,2 @@
 # TimeSeriesGraph.py
-Date ticks are not appearing
-Left offset of data is being cut off
-initial ploting of points are not possible (probably because there arent enough points in the array)
+
