@@ -2,7 +2,7 @@
 '''
     TimeSeriesGraph.py : Creates an graphical interface for data streams
 
-    2017Nov09 : Generates line graph panning along with randomly generated data (date vs. rgn point data)
+    2017Nov09 : Generates a live time series graph, running from a pseudo data stream
 '''
 
 __author__ = "Hieu Nguyen"
@@ -24,7 +24,11 @@ import json
   
 '''
 class TimeSeriesGraph():
-  def __init__(self, data_stream, _window_size=25, _step_size=(1, 's'), _datetime_format='%Y-%m-%d %H:%M:%S'):
+  def __init__(self, data_stream,
+               ax1_attributes=['dN', 'dE', 'dh'], ax1_color=['blue', 'green', 'yellow'],
+               ax2_attributes=['sN', 'sE', 'sh'], ax2_color=['red', 'orange', 'black'],
+               _window_size=15, _step_size=(1, 's'), _datetime_format='%Y-%m-%d %H:%M:%S',
+               y_lim=(-0.07, 0.05), y_lim2=(0.00, 0.02)):
     # setup figure
     self.fig = plt.figure()
 
@@ -39,6 +43,7 @@ class TimeSeriesGraph():
 
     # default datetime and formats
     self.datetime_format = '%Y-%m-%d %H:%M:%S'
+    self.stream_datetime_format = '%d %b %Y %H:%M:%S'
 
     self.default_datetime = dt.datetime.strptime('2016-01-01 00:00:00', self.datetime_format)
     self.current_datetime = dt.datetime.strptime('2016-01-01 00:00:00', self.datetime_format)
@@ -50,19 +55,39 @@ class TimeSeriesGraph():
     self.frame_step_measure = _step_size[1]
 
     # init viewing frame limits
-    start = self.current_datetime - dt.timedelta(minutes=self.frame_step*self.viewing_frame)
+    start = self.current_datetime - dt.timedelta(minutes=self.frame_step * self.viewing_frame)
 
     # set axis limit
-    # todo : make this dynamic / user defined
     self.ax.set_xlim([start, self.current_datetime])
-    self.ax.set_ylim([-0.05, 0.05])
+    self.ax.set_ylim([y_lim[0], y_lim[1]])
 
     self.ax2.set_xlim([start, self.current_datetime])
-    self.ax2.set_ylim([0.00, 0.03])
+    self.ax2.set_ylim([y_lim2[0], y_lim2[1]])
 
-    # todo : to be defined by user
-    self.ax1_attr = ['dN', 'dE', 'dh']
-    self.ax2_attr = ['sN', 'sE', 'sh']
+    # todo : to be defined by user (note: limit number of total attributes)
+    self.ax1_attr = ax1_attributes
+    self.ax2_attr = ax2_attributes
+
+    # if axix colors only has one value - set that color for all attributes on this axis
+    if isinstance(ax1_color, list):
+      if len(ax1_color) == 1:
+        self.ax1_colors = dict(zip(self.ax1_attr, [ax1_color[0]] * len(self.ax1_attr)))
+      elif len(ax1_color) == len(self.ax1_attr):
+        self.ax1_colors = dict(zip(self.ax1_attr, ax1_color))
+      else:
+        self.usage()
+    else:
+      self.usage()
+
+    if isinstance(ax2_color, list):
+      if len(ax2_color) == 1:
+        self.ax2_colors = dict(zip(self.ax2_attr, [ax2_color[0]] * len(self.ax2_attr)))
+      elif len(ax2_color) == len(self.ax2_attr):
+        self.ax2_colors = dict(zip(self.ax2_attr, ax2_color))
+      else:
+        self.usage()
+    else:
+      self.usage()
 
     plt.xticks(rotation=45)
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter(_datetime_format))
@@ -77,8 +102,9 @@ class TimeSeriesGraph():
 
     plt.show()
 
-  def usage(self):
-    pass
+  def usage(self, error_code=1, msg=None):
+    print("Usage - Called")
+    exit(0)
 
   def _generator(self):
     # init
@@ -101,28 +127,22 @@ class TimeSeriesGraph():
       except:
         pass
 
-      # increment the x-axis frame
       frame_counter += 1
-      self.current_datetime = self._increment_datetime(self.current_datetime, auto=True)
-
-      # generate y axis data
-      #kwargs["points"] = np.append(kwargs["points"], np.random.uniform(-0.05, 0.05, 1))
-      #kwargs["points2"] = np.append(kwargs["points2"], np.random.uniform(0.00, 0.03, 1))
 
       # clean up points not within viewing frame
-      # todo : create function or loop to clean up all kwargs lists
-      if len(kwargs["dN"]) > self.viewing_frame + 1:
+      # todo : handle case where axis may have different sizes -> error
+      if len(kwargs[self.ax1_attr[0]]) > self.viewing_frame + 1:
         self._clean_kwargs(kwargs)
 
       # generate corresponding x axis data
-      kwargs['datetime'] = self._get_date_axis(self.current_datetime)[-len(kwargs["dN"]):]
+      kwargs['datetime'] = self._get_date_axis(self.current_datetime)[-len(kwargs[self.ax1_attr[0]]):]
 
       # pass along current frame number
       kwargs['frame_number'] = frame_counter
 
       yield kwargs
 
-  # todo : remove
+  # helper method to init null arrays for axis data
   def _init_kwargs(self, kwargs):
     for attr in self.ax1_attr:
       kwargs[attr] = np.empty(0)
@@ -130,6 +150,7 @@ class TimeSeriesGraph():
     for attr in self.ax2_attr:
       kwargs[attr] = np.empty(0)
 
+  # helper method for cleaning up the viewing frame
   def _clean_kwargs(self, kwargs):
     for attr in self.ax1_attr:
       kwargs[attr] = np.delete(kwargs[attr], 0)
@@ -144,6 +165,9 @@ class TimeSeriesGraph():
 
     for attr in self.ax2_attr:
       kwargs[attr] = np.append(kwargs[attr], getattr(obj, attr))
+
+    # extract respective datetime of the obj
+    self.current_datetime = dt.datetime.strptime(getattr(obj, 'MJD_utc_sys'), self.stream_datetime_format)
 
   # return a list of datetime objects from ending in the given datetime
   def _get_date_axis(self, _datetime, _periods=None, _freq=None):
@@ -169,19 +193,25 @@ class TimeSeriesGraph():
 
   # update function called every iteration of the FuncAnimation implementation
   def _update(self, kwargs):
-    n, x = kwargs['frame_number'], kwargs['datetime']# , kwargs["points"]
-    dN, dE, dh = kwargs['dN'], kwargs['dE'], kwargs['dh']
-    sN, sE, sh = kwargs['sN'], kwargs['sE'], kwargs['sh']
+    n, x = kwargs['frame_number'], kwargs['datetime']
+
+    # legend information
+    marker_labels = []
+    markers = []
 
     # set axis data
     # line graph
-    self.ax.plot(x, dN, 'r')
-    self.ax.plot(x, dE, 'g')
-    self.ax.plot(x, dh, 'b')
+    for v in self.ax1_attr:
+      symb, = self.ax.plot(x, kwargs[v], self.ax1_colors[v], label=v)
 
-    self.ax2.plot(x, sN, 'y')
-    self.ax2.plot(x, sE, 'violet')
-    self.ax2.plot(x, sh, 'black')
+      markers.append(symb)
+      marker_labels.append(v + " - " + str(kwargs[v][-1:]))
+
+    for v in self.ax2_attr:
+      symb, = self.ax2.plot(x, kwargs[v], self.ax2_colors[v], label=v)
+
+      markers.append(symb)
+      marker_labels.append(v + " - " + str(kwargs[v][-1:]))
 
     # scatter plot
     # self.ax.plot_date(x,y)
@@ -195,12 +225,18 @@ class TimeSeriesGraph():
     else:
       # initial case when there fewer points than self.viewing_frame
       self.ax.set_xlim([max(self.default_datetime,
-                            self.current_datetime - dt.timedelta(seconds=self.frame_step*self.viewing_frame)),
+                            self.current_datetime - dt.timedelta(seconds=self.frame_step * self.viewing_frame)),
                         self.current_datetime])
+
+    plt.legend(markers, marker_labels, title="Legend Title", ncol=2, bbox_to_anchor=(0., 1.02, 1., .102), loc=3, mode='expand', borderaxespad=0.)
+    # todo : make padding more dynamic (and possible to add subplots)
+    plt.tight_layout(rect=[0, 0, 1, 0.8])
 
     return self.graph
 
 ################################ Debugging ################################
+
+# Classes used to mimic a live data stream
 
 class rt_stream_onc:
   def __init__(self, **entries):
@@ -218,5 +254,4 @@ class stream:
 
 ################################ --------- ################################
 if __name__ == '__main__':
-  data_stream = stream()
-  ani = TimeSeriesGraph(data_stream.read())
+  ani = TimeSeriesGraph(stream().read())

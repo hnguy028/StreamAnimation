@@ -1,13 +1,42 @@
-import datetime
-import matplotlib.pyplot as plt
+import json
+import datetime as dt
 
-x = [datetime.datetime(2014, 1, 29, 12, 0, 0), datetime.datetime(2014, 1, 29, 6, 6, 0), datetime.datetime(2014, 1, 29, 4, 3, 2)]
-y = [2, 4, 1]
+class rt_stream_onc:
+  def __init__(self, **entries):
+    self.__dict__.update(entries)
 
-fig, ax = plt.subplots()
-ax.plot_date(x, y, markerfacecolor='CornflowerBlue', markeredgecolor='white')
-fig.autofmt_xdate()
-ax.set_xlim([datetime.datetime(2014, 1, 26, 0, 0, 0), datetime.datetime(2014, 2, 1, 12, 0, 0)])
-ax.set_ylim([0, 5])
+class stream:
+ def __init__(self, filename="pydata.txt"):
+   self.filename = filename
 
-plt.show()
+ def read(self):
+   while 1:
+     with open(self.filename, 'r') as f:
+       for line in f:
+         yield json.loads(line)
+
+stream = stream().read()
+old_data = None
+new_data = None
+
+stream_datetime_format = '%d %b %Y %H:%M:%S'
+
+line_num = 0
+
+while 1:
+  try:
+    json_data = stream.next()
+    old_data = new_data
+    new_data = rt_stream_onc(**json_data)
+
+    time1 = dt.datetime.strptime(old_data.MJD_utc_sys, stream_datetime_format)
+    time2 = dt.datetime.strptime(new_data.MJD_utc_sys, stream_datetime_format)
+
+    deltaT = (time2 - time1).seconds
+
+    if deltaT == 0:
+      print(line_num, ": ", time2, " --- ", time1)
+  except:
+    pass
+
+  line_num += 1

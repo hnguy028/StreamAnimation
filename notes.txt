@@ -1,2 +1,10 @@
 # TimeSeriesGraph.py
+- implement X forwarding of application / tunneling to obtain access to the stream
+- on init of application legend gets cutoff
+- add accompanying table to represent time series data ?
+    - find new way to display table apart from using tkinter directly (slow)
 
+
+
+Small Fixes
+- implement dynamic viewing frame to update with user input
