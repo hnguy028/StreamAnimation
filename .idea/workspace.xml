@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58582087-d730-4145-8ad6-4363618c5e9e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notes.txt" afterPath="$PROJECT_DIR$/notes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeSeriesGraph.py" afterPath="$PROJECT_DIR$/TimeSeriesGraph.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,23 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rtGPSPACE-display.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rtGPSPACE-display.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="116" column="67" lean-forward="false" selection-start-line="116" selection-start-column="67" selection-end-line="116" selection-end-column="67" />
-              <folding>
-                <element signature="e#23#66#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="test_date.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_date.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+              <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -61,20 +50,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeSeriesGraph.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TimeSeriesGraph.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TimeSeriesGraph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="43" />
+            <state relative-caret-position="919">
+              <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
               <folding>
                 <element signature="e#293#333#0" expanded="true" />
-                <element signature="e#4453#4581#0" expanded="false" />
-                <element signature="e#4670#4828#0" expanded="false" />
-                <element signature="e#5003#5344#0" expanded="false" />
-                <element signature="e#5488#5609#0" expanded="false" />
-                <element signature="e#5727#5826#0" expanded="false" />
-                <element signature="e#6011#6754#0" expanded="false" />
+                <element signature="e#4958#5086#0" expanded="false" />
+                <element signature="e#5175#5333#0" expanded="false" />
+                <element signature="e#5508#5849#0" expanded="false" />
+                <element signature="e#5993#6114#0" expanded="false" />
+                <element signature="e#6232#6331#0" expanded="false" />
+                <element signature="e#6516#7259#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tight_layout.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/matplotlib/tight_layout.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,17 +82,17 @@
         <entry file="file://$PROJECT_DIR$/pydata.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4107">
-              <caret line="375" column="0" lean-forward="true" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+              <caret line="375" column="0" lean-forward="false" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notes.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="notes.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notes.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="94" lean-forward="false" selection-start-line="4" selection-start-column="94" selection-end-line="4" selection-end-column="94" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,8 +101,8 @@
       <file leaf-file-name="TableApp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TableApp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2346">
-              <caret line="138" column="57" lean-forward="false" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="57" />
+            <state relative-caret-position="714">
+              <caret line="42" column="55" lean-forward="true" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
                 <element signature="e#5062#8640#0" expanded="false" />
@@ -116,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/matplotlib_table.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="765">
-              <caret line="47" column="69" lean-forward="true" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
+              <caret line="47" column="69" lean-forward="false" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -126,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/test_table.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+              <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -144,6 +143,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>plt</find>
+      <find>rota</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,17 +176,18 @@
         <option value="$PROJECT_DIR$/TableApp.py" />
         <option value="$PROJECT_DIR$/test_erase_old.py" />
         <option value="$PROJECT_DIR$/test_date.py" />
-        <option value="$PROJECT_DIR$/TimeSeriesGraph.py" />
         <option value="$PROJECT_DIR$/test_table.py" />
         <option value="$PROJECT_DIR$/notes.txt" />
+        <option value="$PROJECT_DIR$/.config" />
+        <option value="$PROJECT_DIR$/TimeSeriesGraph.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="y" value="1" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1175" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -254,7 +255,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_table">
+  <component name="RunManager" selected="Python.TimeSeriesGraph">
     <configuration name="TableApp" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -349,10 +350,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.test_table" />
-        <item index="1" class="java.lang.String" itemvalue="Python.matplotlib_table" />
-        <item index="2" class="java.lang.String" itemvalue="Python.TableApp" />
-        <item index="3" class="java.lang.String" itemvalue="Python.TimeSeriesGraph" />
+        <item index="0" class="java.lang.String" itemvalue="Python.TimeSeriesGraph" />
+        <item index="1" class="java.lang.String" itemvalue="Python.TableApp" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test_table" />
+        <item index="3" class="java.lang.String" itemvalue="Python.matplotlib_table" />
         <item index="4" class="java.lang.String" itemvalue="Python.test_date" />
       </list>
     </recent_temporary>
@@ -371,13 +372,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="1" width="1936" height="1175" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14895834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29472694" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20225777" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -404,17 +405,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/test-multi.py" />
-    <entry file="file://$PROJECT_DIR$/test_date.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/mjd2utc.py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACE-display.py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACEPPPStream.py">
@@ -580,7 +570,7 @@
         <state relative-caret-position="306">
           <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -620,7 +610,7 @@
     <entry file="file://$PROJECT_DIR$/pydata.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4107">
-          <caret line="375" column="0" lean-forward="true" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+          <caret line="375" column="0" lean-forward="false" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -648,20 +638,9 @@
     <entry file="file://$PROJECT_DIR$/test_date.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TableApp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
-          <caret line="138" column="57" lean-forward="false" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#5062#8640#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -669,40 +648,67 @@
     <entry file="file://$PROJECT_DIR$/matplotlib_table.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
-          <caret line="47" column="69" lean-forward="true" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
+          <caret line="47" column="69" lean-forward="false" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TimeSeriesGraph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="43" />
-          <folding>
-            <element signature="e#293#333#0" expanded="true" />
-            <element signature="e#4453#4581#0" expanded="false" />
-            <element signature="e#4670#4828#0" expanded="false" />
-            <element signature="e#5003#5344#0" expanded="false" />
-            <element signature="e#5488#5609#0" expanded="false" />
-            <element signature="e#5727#5826#0" expanded="false" />
-            <element signature="e#6011#6754#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_table.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="94" lean-forward="false" selection-start-line="4" selection-start-column="94" selection-end-line="4" selection-end-column="94" />
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/tight_layout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TableApp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="55" lean-forward="true" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#5062#8640#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeSeriesGraph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="919">
+          <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+          <folding>
+            <element signature="e#293#333#0" expanded="true" />
+            <element signature="e#4958#5086#0" expanded="false" />
+            <element signature="e#5175#5333#0" expanded="false" />
+            <element signature="e#5508#5849#0" expanded="false" />
+            <element signature="e#5993#6114#0" expanded="false" />
+            <element signature="e#6232#6331#0" expanded="false" />
+            <element signature="e#6516#7259#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

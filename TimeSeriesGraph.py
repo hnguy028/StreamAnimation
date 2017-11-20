@@ -29,12 +29,20 @@ class TimeSeriesGraph():
                ax2_attributes=['sN', 'sE', 'sh'], ax2_color=['red', 'orange', 'black'],
                _window_size=15, _step_size=(1, 's'), _datetime_format='%Y-%m-%d %H:%M:%S',
                y_lim=(-0.07, 0.05), y_lim2=(0.00, 0.02)):
+
     # setup figure
-    self.fig = plt.figure()
+    self.fig = plt.figure(figsize=(15, 15))
 
     # add subplot
-    self.ax = self.fig.add_subplot(1, 1, 1)
+    self.subplots = []
+
+    self.ax = self.fig.add_subplot(2, 1, 2)
     self.ax2 = self.ax.twinx()
+    self.ax3 = self.fig.add_subplot(2, 1, 1)
+
+    self.subplots.append(self.ax)
+    self.subplots.append(self.ax2)
+    self.subplots.append(self.fig.add_subplot(3, 1, 1))
 
     self.data_stream = data_stream
 
@@ -89,16 +97,23 @@ class TimeSeriesGraph():
     else:
       self.usage()
 
-    plt.xticks(rotation=45)
+    # set specific x axis label formats
+    self.ax.xaxis.set_major_formatter(mdates.DateFormatter(_datetime_format))
+
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter(_datetime_format))
     plt.gca().xaxis.set_major_locator(mdates.DayLocator())
+
+    # plt.gca().xaxis.set_minor_formatter(mdates.DateFormatter(_datetime_format))
+    # plt.gca().xaxis.set_minor_locator(mdates.SecondLocator())
+
+    # set label rotation and output format to datetimes
     plt.gcf().autofmt_xdate()
 
     times = self._get_date_axis(str(self.frame_date))
 
     self.graph, = self.ax.plot(times, range(len(times)), color=(0, 0, 1))
 
-    self.ani = animation.FuncAnimation(self.fig, self._update, frames=self._generator(), interval=400, blit=False)
+    self.ani = animation.FuncAnimation(self.fig, self._update, frames=self._generator, interval=400, blit=False)
 
     plt.show()
 
@@ -216,9 +231,6 @@ class TimeSeriesGraph():
     # scatter plot
     # self.ax.plot_date(x,y)
 
-    # set x axis label for each point
-    self.ax.set_xticks(x)
-
     if n > self.viewing_frame:
       # usual case when we continuously plot new points
       self.ax.set_xlim([self.current_datetime - relativedelta(seconds=self.viewing_frame * self.frame_step), self.current_datetime])
@@ -228,9 +240,12 @@ class TimeSeriesGraph():
                             self.current_datetime - dt.timedelta(seconds=self.frame_step * self.viewing_frame)),
                         self.current_datetime])
 
-    plt.legend(markers, marker_labels, title="Legend Title", ncol=2, bbox_to_anchor=(0., 1.02, 1., .102), loc=3, mode='expand', borderaxespad=0.)
+    self.ax.legend(markers, marker_labels, ncol=2, bbox_to_anchor=(0., 1., 1., .102), loc=3, mode='expand', borderaxespad=0.)
     # todo : make padding more dynamic (and possible to add subplots)
-    plt.tight_layout(rect=[0, 0, 1, 0.8])
+    #plt.tight_layout(rect=[0, 0, 1, 0.9])
+
+    self.ax.set_xticks(x)
+    #plt.setp(self.ax.get_xticklabels(), visible=True, rotation=70)
 
     return self.graph
 
