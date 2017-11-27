@@ -18,9 +18,9 @@ import time
 
 def MJD2UTC(mjd):
 	mjd_time, mjd_day = math.modf(mjd)
-	tm_hour = math.floor((86400.0*mjd_time)/3600.0)
-	tm_min = math.floor(math.fmod((86400.0*mjd_time),3600.0)/60.0)
-	tm_sec = round(math.fmod(math.fmod((86400.0*mjd_time),3600.0),60.0),0)
+	tm_hour = math.floor((86400.0 * mjd_time) / 3600.0)
+	tm_min = math.floor(math.fmod((86400.0 * mjd_time), 3600.0) / 60.0)
+	tm_sec = round(math.fmod(math.fmod((86400.0 * mjd_time), 3600.0), 60.0), 0)
 	jd = mjd_day + 0.5 + 2400000.5
 	F, I = math.modf(jd)
 	I = int(I)
@@ -44,5 +44,9 @@ def MJD2UTC(mjd):
 		tm_year = D - 4716
 	else:
 		tm_year = D - 4715
+
+	if tm_sec > 59:
+		tm_sec %= 60
+		tm_min += 1
 
 	return time.strftime('%d %b %Y %H:%M:%S', time.struct_time((int(tm_year), int(tm_mon), int(tm_mday), int(tm_hour), int(tm_min), int(tm_sec), 0, 0, -1)))

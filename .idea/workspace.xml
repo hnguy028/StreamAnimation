@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58582087-d730-4145-8ad6-4363618c5e9e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test_erase_old.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeSeriesGraph.py" afterPath="$PROJECT_DIR$/TimeSeriesGraph.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mjd2utc.py" afterPath="$PROJECT_DIR$/mjd2utc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rtGPSPACE-display.py" afterPath="$PROJECT_DIR$/rtGPSPACE-display.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,98 +18,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_date.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_date.py">
+      <file leaf-file-name="rtGPSPACE-display.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rtGPSPACE-display.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+            <state relative-caret-position="193">
+              <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#23#66#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_matplotlib_sin_anim.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_matplotlib_sin_anim.py">
+      <file leaf-file-name="mjd2utc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mjd2utc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+            <state relative-caret-position="137">
+              <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#699#710#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_erase_old.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_erase_old.py">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+            <state relative-caret-position="221">
+              <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeSeriesGraph.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TimeSeriesGraph.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeSeriesGraph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="919">
-              <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+            <state relative-caret-position="-3773">
+              <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
               <folding>
                 <element signature="e#293#333#0" expanded="true" />
-                <element signature="e#4958#5086#0" expanded="false" />
-                <element signature="e#5175#5333#0" expanded="false" />
-                <element signature="e#5508#5849#0" expanded="false" />
-                <element signature="e#5993#6114#0" expanded="false" />
-                <element signature="e#6232#6331#0" expanded="false" />
-                <element signature="e#6516#7259#0" expanded="false" />
+                <element signature="e#5308#5414#0" expanded="false" />
+                <element signature="e#5507#5601#0" expanded="false" />
+                <element signature="e#7109#7230#0" expanded="false" />
+                <element signature="e#7348#7447#0" expanded="false" />
+                <element signature="e#7632#8375#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tight_layout.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python27/Lib/site-packages/matplotlib/tight_layout.py">
+      <file leaf-file-name="GraphHandler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GraphHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pydata.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pydata.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4107">
-              <caret line="375" column="0" lean-forward="false" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notes.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notes.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TableApp.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TableApp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="55" lean-forward="true" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+            <state relative-caret-position="748">
+              <caret line="164" column="32" lean-forward="false" selection-start-line="164" selection-start-column="32" selection-end-line="164" selection-end-column="32" />
               <folding>
-                <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#5062#8640#0" expanded="false" />
+                <element signature="e#293#333#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="graph_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graph_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,11 +105,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_table.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_table.py">
+      <file leaf-file-name="pydata.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pydata.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+            <state relative-caret-position="264">
+              <caret line="27" column="823" lean-forward="false" selection-start-line="27" selection-start-column="815" selection-end-line="27" selection-end-column="823" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rtGPSPACEPPPStream.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rtGPSPACEPPPStream.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-33">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="94" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -144,6 +138,20 @@
     <findStrings>
       <find>plt</find>
       <find>rota</find>
+      <find>pd</find>
+      <find>self.ax3</find>
+      <find>default_datetime</find>
+      <find>tight</find>
+      <find>setp</find>
+      <find>MJD</find>
+      <find>json</find>
+      <find>exi</find>
+      <find>incremen</find>
+      <find>self.ax4</find>
+      <find>legend</find>
+      <find>dN</find>
+      <find>sta_name</find>
+      <find>fcn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,7 +164,6 @@
         <option value="$PROJECT_DIR$/steam.py" />
         <option value="$PROJECT_DIR$/rtGSPACE-PPP-Steam.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/mjd2utc.py" />
         <option value="$USER_HOME$/AppData/Roaming/SSH/temp/mjd2utc.py" />
         <option value="$USER_HOME$/Desktop/workspace/rtGPSPACE/test.py" />
         <option value="$PROJECT_DIR$/plotHandler.py" />
@@ -165,20 +172,23 @@
         <option value="$PROJECT_DIR$/plotly-test.py" />
         <option value="$PROJECT_DIR$/raindrops_anim.py" />
         <option value="$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACE-display (2).py" />
-        <option value="$PROJECT_DIR$/rtGPSPACE-display.py" />
         <option value="$PROJECT_DIR$/matplotlib_table.py" />
         <option value="$PROJECT_DIR$/pseudo-stream.py" />
         <option value="$PROJECT_DIR$/tkinter_table.py" />
         <option value="$PROJECT_DIR$/test_matplotlib_sin_anim.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/test_t.py" />
         <option value="$PROJECT_DIR$/test_sandbox.py" />
         <option value="$PROJECT_DIR$/TableApp.py" />
-        <option value="$PROJECT_DIR$/test_erase_old.py" />
         <option value="$PROJECT_DIR$/test_date.py" />
         <option value="$PROJECT_DIR$/test_table.py" />
         <option value="$PROJECT_DIR$/notes.txt" />
         <option value="$PROJECT_DIR$/.config" />
+        <option value="$PROJECT_DIR$/test_erase_old.py" />
+        <option value="$PROJECT_DIR$/mjd2utc.py" />
+        <option value="$PROJECT_DIR$/GraphHandler.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/graph_main.py" />
+        <option value="$PROJECT_DIR$/rtGPSPACE-display.py" />
         <option value="$PROJECT_DIR$/TimeSeriesGraph.py" />
       </list>
     </option>
@@ -256,7 +266,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.TimeSeriesGraph">
-    <configuration name="TableApp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="GraphHandler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -268,7 +278,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StreamAnimation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TableApp.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GraphHandler.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -290,7 +300,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="matplotlib_table" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="graph_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -302,12 +312,12 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StreamAnimation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplotlib_table.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/graph_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="test_date" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="mjd2utc" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -319,12 +329,12 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StreamAnimation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_date.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mjd2utc.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="test_table" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -336,25 +346,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="StreamAnimation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_table.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.TimeSeriesGraph" />
-      <item index="1" class="java.lang.String" itemvalue="Python.matplotlib_table" />
-      <item index="2" class="java.lang.String" itemvalue="Python.TableApp" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test_date" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test_table" />
+      <item index="0" class="java.lang.String" itemvalue="Python.graph_main" />
+      <item index="1" class="java.lang.String" itemvalue="Python.TimeSeriesGraph" />
+      <item index="2" class="java.lang.String" itemvalue="Python.GraphHandler" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test" />
+      <item index="4" class="java.lang.String" itemvalue="Python.mjd2utc" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.TimeSeriesGraph" />
-        <item index="1" class="java.lang.String" itemvalue="Python.TableApp" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test_table" />
-        <item index="3" class="java.lang.String" itemvalue="Python.matplotlib_table" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test_date" />
+        <item index="1" class="java.lang.String" itemvalue="Python.graph_main" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.GraphHandler" />
+        <item index="4" class="java.lang.String" itemvalue="Python.mjd2utc" />
       </list>
     </recent_temporary>
   </component>
@@ -378,6 +388,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20225777" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -391,7 +402,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -400,13 +410,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/mjd2utc.py" />
-    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACE-display.py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACEPPPStream.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -483,13 +491,6 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/test-multi.py" />
     <entry file="file://$PROJECT_DIR$/rtGSPACE-PPP-Stream.py" />
-    <entry file="file://$PROJECT_DIR$/mjd2utc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -516,14 +517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/animation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="1720" column="8" lean-forward="false" selection-start-line="1720" selection-start-column="8" selection-end-line="1720" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -558,23 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rtGPSPACEPPPStream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="19" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_expand_date.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pseudo-stream.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -597,67 +573,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rtGPSPACE-display.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="116" column="67" lean-forward="false" selection-start-line="116" selection-start-column="67" selection-end-line="116" selection-end-column="67" />
-          <folding>
-            <element signature="e#23#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pydata.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4107">
-          <caret line="375" column="0" lean-forward="false" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_erase_old.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_matplotlib_sin_anim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_date.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/matplotlib_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="47" column="69" lean-forward="false" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,14 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/tight_layout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TableApp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -696,18 +610,133 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/tight_layout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_matplotlib_sin_anim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="69" lean-forward="true" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_expand_date.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="9" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/animation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="1813" column="0" lean-forward="false" selection-start-line="1813" selection-start-column="0" selection-end-line="1813" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pydata.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="27" column="823" lean-forward="false" selection-start-line="27" selection-start-column="815" selection-end-line="27" selection-end-column="823" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplotlib_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="47" column="69" lean-forward="false" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rtGPSPACEPPPStream.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="94" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mjd2utc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding>
+            <element signature="e#699#710#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rtGPSPACE-display.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding>
+            <element signature="e#23#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TimeSeriesGraph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="919">
-          <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+        <state relative-caret-position="-3773">
+          <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
           <folding>
             <element signature="e#293#333#0" expanded="true" />
-            <element signature="e#4958#5086#0" expanded="false" />
-            <element signature="e#5175#5333#0" expanded="false" />
-            <element signature="e#5508#5849#0" expanded="false" />
-            <element signature="e#5993#6114#0" expanded="false" />
-            <element signature="e#6232#6331#0" expanded="false" />
-            <element signature="e#6516#7259#0" expanded="false" />
+            <element signature="e#5308#5414#0" expanded="false" />
+            <element signature="e#5507#5601#0" expanded="false" />
+            <element signature="e#7109#7230#0" expanded="false" />
+            <element signature="e#7348#7447#0" expanded="false" />
+            <element signature="e#7632#8375#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="164" column="32" lean-forward="false" selection-start-line="164" selection-start-column="32" selection-end-line="164" selection-end-column="32" />
+          <folding>
+            <element signature="e#293#333#0" expanded="true" />
           </folding>
         </state>
       </provider>

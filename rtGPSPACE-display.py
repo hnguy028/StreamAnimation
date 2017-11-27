@@ -5,43 +5,69 @@ import rtGPSPACEPPPStream, mjd2utc
 import json
 #import binascii
 
-def multicast_connect(mcast_grp, mcast_port, stream_type):
-  # MCAST_GRP = '224.2.10.100'  MCAST_PORT = 30000
-  sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-  try:
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-  except AttributeError:
-    pass
-#  sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 32) 
-#  sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_LOOP, 1)
+import GraphHandler as gh
 
-  sock.bind((mcast_grp, mcast_port))
-  # host = socket.gethostbyname("198.103.205.130")
-  host = socket.gethostbyname(get_ip_address(sock, 'eth0'))
-  sock.setsockopt(socket.SOL_IP, socket.IP_MULTICAST_IF, socket.inet_aton(host))
-  sock.setsockopt(socket.SOL_IP, socket.IP_ADD_MEMBERSHIP,
-                   socket.inet_aton(mcast_grp) + socket.inet_aton(host))
+class multicast:
+  def __init__(self, _mcast_grp, _mcast_port, _stream_type, _output_mode):
+    self.mcast_grp = _mcast_grp
+    self.mcast_port = _mcast_port
+    self.stream_type = _stream_type
+    self.output_mode = _output_mode
 
-  count = 0
-
-  while 1:
+    self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     try:
-      cdata, addr = sock.recvfrom(1024)
-    except socket.error, e:
-      print 'Expection'
+      self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    except AttributeError:
+      print("Socket Attribute Error")
+      exit(1)
 
-    if stream_type == 'onc':
-      pydata = rtGPSPACEPPPStream.rt_stream_onc.from_buffer_copy(cdata)
-    else:
-      raise Exception
-      pydata = rtGPSPACEPPPStream.rt_stream_pgc.from_buffer_copy(cdata)
-    try:
-      write_pydata(pydata, stream_type, count)
+    self.connect()
+
+  def connect(self):
+    self.sock.bind((self.mcast_grp, self.mcast_port))
+    self.host = socket.gethostbyname("10.0.2.15")
+    #self.host = socket.gethostbyname(get_ip_address(self.sock, 'eth0'))
+    self.sock.setsockopt(socket.SOL_IP, socket.IP_MULTICAST_IF, socket.inet_aton(self.host))
+    self.sock.setsockopt(socket.SOL_IP, socket.IP_ADD_MEMBERSHIP,
+                     socket.inet_aton(self.mcast_grp) + socket.inet_aton(self.host))
+
+  def generator(self):
+
+    while 1:
+      try:
+        cdata, addr = self.sock.recvfrom(1024)
+      except socket.error, e:
+        print 'Expection'
+
+      if self.stream_type == 'onc':
+        pydata = rtGPSPACEPPPStream.rt_stream_onc.from_buffer_copy(cdata)
+      else:
+        raise Exception
+        pydata = rtGPSPACEPPPStream.rt_stream_pgc.from_buffer_copy(cdata)
+
+      yield pydata
+
+  def output(self):
+    count = 0
+
+    while 1:
+      try:
+        cdata, addr = self.sock.recvfrom(1024)
+      except socket.error, e:
+        print 'Expection'
+
+      if self.stream_type == 'onc':
+        pydata = rtGPSPACEPPPStream.rt_stream_onc.from_buffer_copy(cdata)
+      else:
+        raise Exception
+        pydata = rtGPSPACEPPPStream.rt_stream_pgc.from_buffer_copy(cdata)
+
+      if self.output_mode == 'print':
+        draw_pydata(pydata, self.stream_type)
+      elif self.output_mode == 'store':
+        write_pydata(pydata, self.stream_type, count)
+
       count += 1
-    except:
-      pass
-    print count
-    # draw_pydata(pydata, stream_type)
 
 def write_pydata(pydata, stream_type, count):
   if count < 1000:
@@ -100,8 +126,6 @@ def write_pydata(pydata, stream_type, count):
       f.write("\n")
   else:
     print "Wrote 200 lines"
-
-
 
 # draw rtGPSPACEPPPStream
 def draw_pydata(pydata, stream_type):
@@ -189,6 +213,23 @@ def get_ip_address(sock, ifname):
     struct.pack('256s', ifname[:15])
   )[20:24])
 
+# debugging
+class rt_stream_onc:
+  def __init__(self, **entries):
+    self.__dict__.update(entries)
+
+class stream:
+ def __init__(self, filename="pydata.txt"):
+   self.filename = filename
+
+ def read(self):
+   while 1:
+     with open(self.filename, 'r') as f:
+       for line in f:
+         json_data = json.loads(line)
+         pydata = rt_stream_onc(**json_data)
+         yield pydata
+
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Prg Description')
   parser.add_argument('-v', '--verbose', help='increase output verbosity', action='store_true')
@@ -202,7 +243,19 @@ if __name__ == '__main__':
                       action='store', default='224.2.10.100',
                       help='set multicast ip address group')
 
+  # for testing purposes
+  parser.add_argument('-om', '--set_output_mode',
+                      action='store', default='print', choices=['print', 'store', 'graph'],
+                      help='set multicast output mode, print to terminal, store to file, or graph (requires ui) (default="print")')
+
   args = parser.parse_args()
 
-  multicast_connect(args.set_stream_ip, args.set_stream_port, args.set_stream_type)
+  mcast = multicast(args.set_stream_ip, args.set_stream_port, args.set_stream_type, args.set_output_mode)
+
+  if args.set_output_mode in ['store', 'print']:
+      mcast.output()
+  else:
+    tsg = gh.TimeSeriesGraph(mcast.generator())
+
+    # tsg = gh.TimeSeriesGraph(stream().read())
 
