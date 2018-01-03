@@ -42,11 +42,11 @@ class TimeSeriesGraph():
     self.ax2 = self.fig.add_subplot(2, 2, 1)
     # self.ax2 = self.ax.twinx()
 
-    self.ax3 = self.fig.add_subplot(2, 2, 3)
-    self.ax3.axis('off')
-
-    self.ax4 = self.fig.add_subplot(2, 2, 4)
-    self.ax4.axis('off')
+    # self.ax3 = self.fig.add_subplot(2, 2, 3)
+    # self.ax3.axis('off')
+    #
+    # self.ax4 = self.fig.add_subplot(2, 2, 4)
+    # self.ax4.axis('off')
 
 
 
@@ -273,9 +273,9 @@ class TimeSeriesGraph():
     # self.ax.legend(markers, marker_labels, ncol=2, bbox_to_anchor=(0., 1., 1., .102), loc=3, mode='expand', borderaxespad=0.)
     # self.fig.legend(markers, marker_labels)
 
-    self.ax3.legend(markers, marker_labels, loc='center', mode='expand')
-
-    self.ax4.legend(handles=kwargs['data_table'], loc='center', mode='expand', ncol=3)
+    # self.ax3.legend(markers, marker_labels, loc='center', mode='expand')
+    #
+    # self.ax4.legend(handles=kwargs['data_table'], loc='center', mode='expand', ncol=3)
 
     # live update of cell text is extremely slow (need to implement a different way, using legend?)
     # self.table._cells[(1, 1)]._text.set_text(self.current_datetime)
