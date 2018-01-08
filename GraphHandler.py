@@ -20,8 +20,10 @@ import pandas as pd
 from dateutil.relativedelta import *
 
 import mjd2utc
+import datetime_functions
 import constants as constants
 import config
+import Sub_Plots
 
 '''
 
@@ -34,7 +36,7 @@ class TimeSeriesGraph():
                ax2_attributes=['sN', 'sE', 'sh'], ax2_color=['red', 'orange', 'black'],
                time_attribute='MJD_sys',
                _points_per_frame=15, _frame_size=(15, 10), _step_size=(1, 's'),
-               _steam_datetime_format='%d %b %Y %H:%M:%S', _output_datetime_format='%Y-%m-%d %H:%M:%S',
+               _stream_datetime_format='%d %b %Y %H:%M:%S', _output_datetime_format='%Y-%m-%d %H:%M:%S',
                y_lim=(-0.07, 0.05), y_lim2=(0.00, 0.02)):
 
     # setup figure
@@ -57,7 +59,7 @@ class TimeSeriesGraph():
 
     # default datetime and formats
     self.datetime_format = _output_datetime_format
-    self.stream_datetime_format = _steam_datetime_format
+    self.stream_datetime_format = _stream_datetime_format
 
     self.default_datetime = dt.datetime.strptime('2016-01-01 00:00:00', self.datetime_format)
     self.current_datetime = dt.datetime.strptime('2016-01-01 00:00:00', self.datetime_format)
@@ -70,8 +72,10 @@ class TimeSeriesGraph():
 
     # init viewing frame limits
 
+    self.ax = Sub_Plots.Panning_SubPlot(221, self.fig, self.datetime_format, _step_size, laxis_attr=ax1_attributes,
+                                        laxis_color=ax1_color, laxis_lim=y_lim, num_points=_points_per_frame)
     # set axis limit
-    self.ax.set_ylim([y_lim[0], y_lim[1]])
+    #self.ax.set_ylim([y_lim[0], y_lim[1]])
     self.ax2.set_ylim([y_lim2[0], y_lim2[1]])
 
     # todo : to be defined by user (note: limit number of total attributes)
@@ -100,8 +104,9 @@ class TimeSeriesGraph():
       self.usage()
 
     # set specific x axis label formats
-    self.ax.xaxis.set_major_formatter(mdates.DateFormatter(self.datetime_format))
+    #self.ax.xaxis.set_major_formatter(mdates.DateFormatter(self.datetime_format))
     self.ax2.xaxis.set_major_formatter(mdates.DateFormatter(self.datetime_format))
+
 
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter(self.datetime_format))
     plt.gca().xaxis.set_major_locator(mdates.DayLocator())
@@ -112,9 +117,9 @@ class TimeSeriesGraph():
     # set label rotation and output format to datetimes
     plt.gcf().autofmt_xdate()
 
-    times = self._get_date_axis(str(self.frame_date))
+    times = datetime_functions._get_date_axis(str(self.frame_date), self.datetime_format, self.viewing_frame, self.x_axis_frequency)
 
-    self.graph, = self.ax.plot(times, range(len(times)), color=(0, 0, 1))
+    self.graph = self.ax.ax.plot(times, range(len(times)), color=(0,0,1))
     self.graph2, = self.ax2.plot(times, range(len(times)), color=(0, 0, 1))
 
     self.ani = animation.FuncAnimation(self.fig, self._update, frames=self._generator, interval=200, blit=False)
@@ -155,7 +160,7 @@ class TimeSeriesGraph():
         self._deque_kwargs(kwargs)
 
       # generate corresponding x axis data
-      kwargs['datetime'] = self._get_date_axis(self.current_datetime)[-len(kwargs[self.ax1_attr[0]]):]
+      kwargs['datetime'] = datetime_functions._get_date_axis(self.current_datetime, self.datetime_format, self.viewing_frame, self.x_axis_frequency)[-len(kwargs[self.ax1_attr[0]]):]
       
       # pass along current frame number
       kwargs['frame_number'] = frame_counter
@@ -200,30 +205,6 @@ class TimeSeriesGraph():
 
     kwargs['mrp'] = legend_entries
 
-  # return a list of datetime objects from ending in the given datetime
-  def _get_date_axis(self, _datetime, _periods=None, _freq=None):
-    return self._timestamp2datetime(
-      pd.date_range(end=_datetime, periods=self.viewing_frame + 1, freq=self.x_axis_frequency))
-
-  # converts list of timestamp() objects to datetime() objects
-  def _timestamp2datetime(self, timestamp_list):
-    return [dt.datetime.strptime(str(timestamp), self.datetime_format) for timestamp in timestamp_list]
-
-  # increment datetime objects by specified times
-  def _increment_datetime(self, datetime, auto=False, _seconds=0, _minutes=0, _hours=0, _days=0, _weeks=0, _months=0, _years=0):
-    # to be handled by the TimeSeriesGraph class variables
-    if auto:
-      return datetime + relativedelta(seconds=self.frame_step)
-    else:
-      # increment as specified in the function call
-      if _months == 0 and _years == 0:
-        # self.frame_date = datetime + dt.timedelta(seconds=_seconds, minutes=_minutes, hours=_hours)
-        return datetime + dt.timedelta(seconds=_seconds, minutes=_minutes, hours=_hours)
-      else:
-        # self.frame_date = datetime + relativedelta(seconds=_seconds, minutes=_minutes, hours=_hours, days=_days, weeks=_weeks, _months=_months, years=_years)
-        return datetime + relativedelta(seconds=_seconds, minutes=_minutes, hours=_hours, days=_days, weeks=_weeks,
-                                        _months=_months, years=_years)
-
   # update function called every iteration of the FuncAnimation implementation
   def _update(self, kwargs):
     n, x = kwargs['frame_number'], kwargs['datetime']
@@ -232,32 +213,44 @@ class TimeSeriesGraph():
     marker_labels = []
     markers = []
 
+    symb = self.ax.plot(x, kwargs)
+    markers = symb[0]
+    for xx,yy in zip(symb[1], symb[2]):
+      marker_labels.append(xx + " - " + yy)
+
     # set axis data and store marker definitions
     for v in self.ax1_attr:
-      symb, = self.ax.plot(x, kwargs[v], self.ax1_colors[v], label=v)
-
-      markers.append(symb)
-      marker_labels.append(v + " - " + str(kwargs[v][-1:]))
+      # symb, = self.ax.ax.plot(x, kwargs[v], self.ax1_colors[v], label=v)
+      #symb = self.ax.plot(x, kwargs[v], self.ax1_colors[v])
+      #symb = self.ax.plot_list(x, kwargs[v])
+      pass
+      #markers.append(symb)
+      #marker_labels.append(v + " - " + str(kwargs[v][-1:]))
 
     for v in self.ax2_attr:
-      symb, = self.ax2.plot(x, kwargs[v], self.ax2_colors[v], label=v)
+      symb, = self.ax2.plot(x, kwargs[v], self.ax2_colors[v])
 
       markers.append(symb)
       marker_labels.append(v + " - " + str(kwargs[v][-1:]))
+
+      self.graph = symb
 
     # scatter plot
     # self.ax.plot_date(x,y)
 
     if n > self.viewing_frame:
       # usual case when we continuously plot new points
-      self.ax.set_xlim([self.current_datetime - relativedelta(seconds=self.viewing_frame * self.frame_step), self.current_datetime])
+      self.ax.set_xlim(self.current_datetime)
+      #self.ax.set_xlim([self.current_datetime - relativedelta(seconds=self.viewing_frame * self.frame_step), self.current_datetime])
       self.ax2.set_xlim([self.current_datetime - relativedelta(seconds=self.viewing_frame * self.frame_step), self.current_datetime])
     else:
       # initial case when there fewer points than self.viewing_frame
-      self.ax.set_xlim([max(self.default_datetime,
-                            self.current_datetime - dt.timedelta(seconds=self.frame_step * self.viewing_frame)),
-                        self.current_datetime])
+      self.ax.set_xlim(max(self.default_datetime,
+                             self.current_datetime - dt.timedelta(seconds=self.frame_step * self.viewing_frame)))
 
+      # self.ax.set_xlim([max(self.default_datetime,
+      #                       self.current_datetime - dt.timedelta(seconds=self.frame_step * self.viewing_frame)),
+      #                   self.current_datetime])
       self.ax2.set_xlim([max(self.default_datetime,
                             self.current_datetime - dt.timedelta(seconds=self.frame_step * self.viewing_frame)),
                         self.current_datetime])
@@ -285,13 +278,13 @@ class TimeSeriesGraph():
     for types in constants.plot_types:
       self.subplots[types] = []
 
-    self.ax = self.fig.add_subplot(2, 2, 1)
+    #self.ax = self.fig.add_subplot(2, 2, 1)
     # self.ax_2 = self.ax.twinx()
 
     self.ax2 = self.fig.add_subplot(2, 2, 2)
     # self.ax2_2 = self.ax.twinx()
 
-    self.subplots[constants.plot_type_1].append(self.ax)
+    #self.subplots[constants.plot_type_1].append(self.ax)
     self.subplots[constants.plot_type_1].append(self.ax2)
 
     self.ax3 = self.fig.add_subplot(2, 2, 3)
