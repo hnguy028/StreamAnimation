@@ -5,11 +5,11 @@ import matplotlib.dates as mdates
 import datetime as dt
 
 class Panning_SubPlot(SubPlot):
-  def __init__(self, dimensions, fig, time_attr, time_fmt, time_delta=(1, 's'), axis=(1,0),
+  def __init__(self, dimensions, fig, ax, time_attr, time_fmt, time_delta=(1, 's'), axis=(1, 0),
                laxis_attr=[], raxis_attr=[],
                laxis_color=None, raxis_color=None,
                laxis_marker=None, raxis_marker=None,
-               laxis_lim=(-1, 1), raxis_lim=(-1, 1),
+               laxis_lim=(0, 1), raxis_lim=(0, 1),
                num_points=15):
     SubPlot.__init__(self, dimensions, 'panning')
     self.fig = fig
@@ -25,15 +25,16 @@ class Panning_SubPlot(SubPlot):
 
     self.num_points = num_points
 
-    self.ax = fig.add_subplot(self.dimensions)
+    #self.ax = self.fig.add_subplot(self.dimensions)
+    self.ax = ax
 
     self.ax.set_ylim([self.left_axis_lim[0], self.left_axis_lim[1]])
-    self.ax.xaxis.set_major_formatter(mdates.DateFormatter(self.time_format))
+    #self.ax.xaxis.set_major_formatter(mdates.DateFormatter(self.time_format))
 
     if self.axis[1] == 1:
       self.ax2 = self.ax.twinx()
       self.ax2.set_ylim([self.right_axis_lim[0], self.right_axis_lim[1]])
-      self.ax2.xaxis.set_major_formatter(mdates.DateFormatter(self.time_format))
+      #self.ax2.xaxis.set_major_formatter(mdates.DateFormatter(self.time_format))
 
     self._load_markers(laxis_color, laxis_marker, raxis_color, raxis_marker)
 
@@ -85,6 +86,10 @@ class Panning_SubPlot(SubPlot):
       else:
         self.markers[1] = dict(zip(self.right_axis_attr, [right_markers] * len(self.right_axis_attr)))
 
+
+  def plot_init(self):
+    return self.ax.plot()
+
   '''
     xs : linear array of datetimes
     ys : dictionary of points for each attribute
@@ -128,13 +133,20 @@ class Panning_SubPlot(SubPlot):
     else:
       raise IndexError('No axes have been set to plot')
 
-  def set_xlim(self, datetime):
+  def set_xlim(self, datetime_upper):
+
+    default_datetime = dt.datetime.strptime('1970-01-01 0:0:0', '%Y-%m-%d  %H:%M:%S')
+
     if self.time_delta[1] in ['s', 'secs', 'seconds']:
-      self.ax.set_xlim([datetime - relativedelta(seconds=self.num_points * self.time_delta[0]), datetime])
+      self.ax.set_xlim([max(datetime_upper - relativedelta(seconds=self.num_points * self.time_delta[0]), default_datetime),
+                        datetime_upper])
     elif self.time_delta[1] in ['m', 'mins', 'minutes']:
-      self.ax.set_xlim([datetime - relativedelta(minutess=self.num_points * self.time_delta[0]), datetime])
+      self.ax.set_xlim([max(datetime_upper - relativedelta(minutes=self.num_points * self.time_delta[0]), default_datetime),
+                        datetime_upper])
     elif self.time_delta[1] in ['h', 'hour', 'hours']:
-      self.ax.set_xlim([datetime - relativedelta(hours=self.num_points * self.time_delta[0]), datetime])
+      self.ax.set_xlim([max(datetime_upper - relativedelta(hours=self.num_points * self.time_delta[0]), default_datetime),
+                        datetime_upper])
+
 
   def set_xticks(self, x):
     self.ax.set_xticks(x)

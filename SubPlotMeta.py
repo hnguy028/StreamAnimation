@@ -3,8 +3,5 @@ class SubPlot:
     self.dimensions = dimensions
     self.type = plot_type
 
-  def update(self):
-    raise NotImplementedError
-
   def plot(self):
     raise NotImplementedError

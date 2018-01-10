@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 import matplotlib.legend as mlegend
 
-ax = plt.subplot(111)
+ax = plt.subplot(222)
+ax2 = plt.subplot(221)
+
 l1, = ax.plot([1,2,3])
 
 leg1 = ax.legend([l1], ["long lable"], ncol=1)

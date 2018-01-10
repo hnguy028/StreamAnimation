@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58582087-d730-4145-8ad6-4363618c5e9e" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Panning_Plot.py" afterPath="$PROJECT_DIR$/Sub_Plots.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/SubPlot.py" afterPath="$PROJECT_DIR$/SubPlotMeta.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GraphHandler.py" afterPath="$PROJECT_DIR$/GraphHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeSeriesGraph.py" afterPath="$PROJECT_DIR$/TimeSeriesGraph.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SubPlotMeta.py" afterPath="$PROJECT_DIR$/SubPlotMeta.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sub_Plots.py" afterPath="$PROJECT_DIR$/Sub_Plots.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +20,7 @@
       <file leaf-file-name="TimeSeriesGraph.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeSeriesGraph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
+            <state relative-caret-position="17">
               <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
@@ -30,8 +30,8 @@
       <file leaf-file-name="SubPlotMeta.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SubPlotMeta.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="85">
+              <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -40,8 +40,8 @@
       <file leaf-file-name="Sub_Plots.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sub_Plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+            <state relative-caret-position="391">
+              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -52,8 +52,8 @@
       <file leaf-file-name="GraphHandler.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GraphHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="75" column="109" lean-forward="false" selection-start-line="75" selection-start-column="109" selection-end-line="75" selection-end-column="109" />
+            <state relative-caret-position="612">
+              <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
               <folding>
                 <element signature="e#293#333#0" expanded="true" />
               </folding>
@@ -61,12 +61,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="datetime_functions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datetime_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="85">
+              <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,16 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.ax3</find>
-      <find>default_datetime</find>
-      <find>tight</find>
-      <find>setp</find>
-      <find>MJD</find>
-      <find>json</find>
-      <find>exi</find>
-      <find>incremen</find>
-      <find>self.ax4</find>
-      <find>legend</find>
       <find>dN</find>
       <find>sta_name</find>
       <find>fcn</find>
@@ -145,7 +147,6 @@
       <find>plot</find>
       <find>frame_s</find>
       <find>ylim</find>
-      <find>self.ax</find>
       <find>get_date</find>
       <find>get_date_ax</find>
       <find>rela</find>
@@ -154,6 +155,17 @@
       <find>_get_d</find>
       <find>attri</find>
       <find>attributes</find>
+      <find>self.ax2</find>
+      <find>self.ax</find>
+      <find>self.ax1</find>
+      <find>stream</find>
+      <find>_datetime_for</find>
+      <find>stream_datetime_for</find>
+      <find>ax1_color</find>
+      <find>self.fig</find>
+      <find>self.time_attr</find>
+      <find>twin</find>
+      <find>self.time_for</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -186,7 +198,6 @@
         <option value="$PROJECT_DIR$/.config" />
         <option value="$PROJECT_DIR$/test_erase_old.py" />
         <option value="$PROJECT_DIR$/mjd2utc.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/rtGPSPACE-display.py" />
         <option value="$PROJECT_DIR$/graph_main.py" />
         <option value="$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACE-display.py" />
@@ -197,8 +208,10 @@
         <option value="$PROJECT_DIR$/SubPlot.py" />
         <option value="$PROJECT_DIR$/TimeSeriesGraph.py" />
         <option value="$PROJECT_DIR$/Panning_Plot.py" />
-        <option value="$PROJECT_DIR$/Sub_Plots.py" />
         <option value="$PROJECT_DIR$/datetime_functions.py" />
+        <option value="$PROJECT_DIR$/SubPlotMeta.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/Sub_Plots.py" />
         <option value="$PROJECT_DIR$/GraphHandler.py" />
       </list>
     </option>
@@ -242,7 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -254,11 +267,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LAS_Converter" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/hinguyen/Git/StreamAnimation/test_erase_old.py" />
   </component>
@@ -371,8 +384,8 @@
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.graph_main" />
         <item index="1" class="java.lang.String" itemvalue="Python.GraphHandler" />
-        <item index="2" class="java.lang.String" itemvalue="Python.TimeSeriesGraph" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.TimeSeriesGraph" />
         <item index="4" class="java.lang.String" itemvalue="Python.mjd2utc" />
       </list>
     </recent_temporary>
@@ -405,7 +418,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39887112" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3951082" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -435,32 +448,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/workspace/rtGPSPACE/rtGPSPACEPPPStream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/workspace/rtGPSPACE/rtGPSPACEPPPStream.py" />
     <entry file="file://$USER_HOME$/Desktop/workspace/rtGPSPACE/rtGPSPACE-display.py" />
-    <entry file="file://$USER_HOME$/Desktop/workspace/rtGPSPACE/mjd2utc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/workspace/rtGPSPACE/mjd2utc.py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/mjd2utc (1).py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACEPPPStream (1).py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/test (2).py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/mjd2utc.py" />
-    <entry file="file://$USER_HOME$/Desktop/workspace/rtGPSPACE/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/workspace/rtGPSPACE/test.py" />
     <entry file="file://C:/Python27/Lib/site-packages/plotly/plotly/plotly.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="583">
@@ -470,20 +465,8 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/test-multi.py" />
     <entry file="file://$PROJECT_DIR$/rtGSPACE-PPP-Stream.py" />
-    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="66" column="23" lean-forward="false" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACEPPPStream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/test.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACEPPPStream.py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/test (1).py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -596,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mjd2utc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -618,20 +594,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACE-display.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="257" column="16" lean-forward="true" selection-start-line="257" selection-start-column="16" selection-end-line="257" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/GraphHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/rtGPSPACE-display.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/GraphHandler.py" />
     <entry file="file://$USER_HOME$/AppData/Roaming/SSH/temp/GraphHandler (1).py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -657,9 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4131">
           <caret line="248" column="48" lean-forward="false" selection-start-line="248" selection-start-column="48" selection-end-line="248" selection-end-column="48" />
-          <folding>
-            <element signature="e#23#66#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,19 +648,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TimeSeriesGraph.py">
+    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/pyplot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SubPlotMeta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="275">
+          <caret line="250" column="0" lean-forward="false" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -713,36 +665,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/matplotlib/pyplot.py">
+    <entry file="file://$PROJECT_DIR$/datetime_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="250" column="0" lean-forward="false" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeSeriesGraph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sub_Plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+        <state relative-caret-position="391">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datetime_functions.py">
+    <entry file="file://$PROJECT_DIR$/SubPlotMeta.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="36" />
+        <state relative-caret-position="85">
+          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GraphHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="75" column="109" lean-forward="false" selection-start-line="75" selection-start-column="109" selection-end-line="75" selection-end-column="109" />
+        <state relative-caret-position="612">
+          <caret line="86" column="23" lean-forward="false" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
           <folding>
             <element signature="e#293#333#0" expanded="true" />
           </folding>
