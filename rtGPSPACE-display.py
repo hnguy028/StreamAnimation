@@ -25,8 +25,8 @@ class multicast:
 
   def connect(self):
     self.sock.bind((self.mcast_grp, self.mcast_port))
-    self.host = socket.gethostbyname("10.0.2.15")
-    #self.host = socket.gethostbyname(get_ip_address(self.sock, 'eth0'))
+    #self.host = socket.gethostbyname("10.0.2.15")
+    self.host = socket.gethostbyname(get_ip_address(self.sock, 'eth0'))
     self.sock.setsockopt(socket.SOL_IP, socket.IP_MULTICAST_IF, socket.inet_aton(self.host))
     self.sock.setsockopt(socket.SOL_IP, socket.IP_ADD_MEMBERSHIP,
                      socket.inet_aton(self.mcast_grp) + socket.inet_aton(self.host))
@@ -213,23 +213,6 @@ def get_ip_address(sock, ifname):
     struct.pack('256s', ifname[:15])
   )[20:24])
 
-# debugging
-class rt_stream_onc:
-  def __init__(self, **entries):
-    self.__dict__.update(entries)
-
-class stream:
- def __init__(self, filename="pydata.txt"):
-   self.filename = filename
-
- def read(self):
-   while 1:
-     with open(self.filename, 'r') as f:
-       for line in f:
-         json_data = json.loads(line)
-         pydata = rt_stream_onc(**json_data)
-         yield pydata
-
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Prg Description')
   parser.add_argument('-v', '--verbose', help='increase output verbosity', action='store_true')
@@ -255,7 +238,7 @@ if __name__ == '__main__':
   if args.set_output_mode in ['store', 'print']:
       mcast.output()
   else:
-    tsg = gh.TimeSeriesGraph(mcast.generator())
+    tsg = gh.GraphHandler(mcast.generator())
 
     # tsg = gh.TimeSeriesGraph(stream().read())
 

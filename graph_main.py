@@ -23,4 +23,4 @@ class stream:
 ################################ --------- ################################
 
 if __name__ == '__main__':
-  ani = tms.TimeSeriesGraph(stream().read())
+  ani = tms.GraphHandler(stream().read())
